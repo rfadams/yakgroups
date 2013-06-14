@@ -1,0 +1,16 @@
+{% spaceless %}
+<table id="relatedTopicsTable" class="relatedItemsTable">
+{% for topic in todo.all_topics %}
+<tr class="{% cycle 'tableAltRow' '' %}">
+	<td>
+		<a id="relatedTopic_{{ topic.id }}"  class="relatedTopicLink" href="">{{ topic.title }}</a>
+	</td>
+	<td>
+		<a id="relatedTopicRemove_{{ topic.id }}" class="relatedTopicRemoveLink" href="">Remove</a>
+	</td>
+</tr>
+{% empty %}
+<tr class="tableAltRow"><td>No related discussions</td><td>&nbsp;</td></tr>
+{% endfor %}
+</table>
+{% endspaceless %}

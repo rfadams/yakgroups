@@ -1,0 +1,946 @@
+/* @override 
+	http://yg.com:8800/static/css/YG.css
+	http://localhost:8800/static/css/YG.css
+*/
+
+/* @group Page Layout */
+
+html,body{
+	height: 100%;
+	width: 100%;
+	color: #444444;
+	min-width: 800px;
+	overflow: hidden;
+}
+
+.hidden{
+	display: none;
+}
+
+h3{
+	padding: 0;
+	margin: 4px 0;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.tableAltRow{
+	background-color: #DDD;	
+}
+
+.droppableHover{
+	background-color: #E8BE54 !important;
+}
+
+.header{
+	position: relative;
+	height: 50px;
+	margin: 0 10px;
+}
+
+.groupTitleBar{
+	position: absolute;
+	top: 12px;
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+}
+
+.settingsBox{
+	display: none;
+	position: relative;
+	background: #FACC14;
+	width: 700px;
+	margin: 0 auto;
+	height: 290px;
+}
+
+.settingsBox2{
+	width: 400px;
+}
+
+.ui-dialog-titlebar{
+	font-size: 18px;
+	line-height: 16px
+}
+
+.subHeader{
+	/*background: blue;*/
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+	border-bottom: 1px solid #444444;
+	border-top: 1px solid #444444;
+	margin: 0 5px;
+	padding: 0 5px;
+}
+
+.todoListHeader{
+	/*background: green;*/
+	display: none;
+	position: absolute;
+	width: 318px;
+	height: 24px;
+	top: 110px;
+	left: 10px;
+	border: 1px solid #777777;
+	border-bottom: 0;
+}
+
+.todoList{
+	/*background: goldenrod;*/
+	position: absolute;
+	width: 318px;
+	top: 110px;
+	bottom: 10px;
+	left: 10px;
+	border: 1px solid #777777;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.vDivider{
+	background: #444444;
+	position: absolute;
+	width: 1px;
+	top: 105px;
+	bottom: 5px;
+	left: 335px;
+}
+
+.tabs{
+	/*background: gray;*/
+	position: absolute;
+	min-width: 449px;
+	top: 110px;
+	bottom: 10px;
+	left: 341px;
+	right: 10px;
+	padding: 0;
+	border: 0;
+}
+
+#tabs div.tabContent{
+	position: absolute;
+	border: 1px solid #777777;
+	border-top: 0;
+	top: 33px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+.centered{
+	text-align: center;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+ul.errorlist {
+	margin: 0;
+	padding: 0;
+}
+
+.errorlist li {
+	color: red;
+	display: block;
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+}
+
+input.errorField,
+input.errorField:focus,
+.errorCell input{
+	margin-top: 0;
+	border: 1px solid red;
+}
+
+.errorText{
+	color: red !important;
+}
+
+.formTable{
+	table-layout: fixed;
+	padding-right: 10px; /*Controls width of form */
+}
+
+.formTable td{
+	font-size: 10px;
+	padding: 12px 0;
+	font-style: italic;
+	text-align: left;
+}
+
+.formTable th{
+	vertical-align: top;
+	padding: 12px 0 0;
+	width: 100px;
+}
+
+.formTable input[type="text"]{
+	margin: 0;
+	font-size: 14px;
+	width: 99.3%;
+	padding: 0 0 0 2px;
+}
+
+.formTable input[type="checkbox"]{
+	margin: 0;
+	font-size: 12px;
+}
+
+.formTable select{
+	width: 100%;
+	font-size: 14px;
+}
+
+.formTable textarea{
+	font-size: 14px;
+	width: 99.3%;
+	display:block;
+	height: 50px;
+	margin: 0;
+	padding: 0 0 0 2px;
+}
+
+.formTable ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 14px;
+}
+
+.formTable ul > li > label {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+
+.formTable ul > li > label > input {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -4px;
+    *overflow: hidden;
+}
+
+.relatedItemsCell {
+	padding: 10px 0;
+}
+
+table.relatedItemsTable td{
+	margin: 0;
+	padding:4px 10px 4px 5px;
+	font-style: normal;
+	font-size: 14px;
+}
+
+table.relatedItemsTable tr > td:first-child {
+	width: 95%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.content{
+	overflow: auto;
+	padding: 2px 8px;
+	position: absolute;
+	top: 3px;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+}
+
+.tabContent .ui-dialog-buttonpane {
+	position: absolute;
+	bottom: 0;
+	left: 2px;
+	right: 2px;
+	border-top:1px solid;
+}
+
+.tabContent .ui-dialog-buttonpane button {
+	float:right;
+	margin: 2px 2px;
+	overflow:visible;
+	padding:2px 6px;
+	width:auto;
+}
+
+/* @end */
+
+/* @group Header */
+
+.head1{
+	width: 275px;
+	padding: 5px 0 0;
+}
+
+.head2{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 275px;
+}
+
+.title1{
+	color: #224466;
+}
+.title2{
+	color: #336699;
+}
+.title4{
+	color: #AA2124;
+	font-size: 1.2em !important;
+	position: absolute;
+	top: 8px;
+}
+
+.mascotImage{
+	height: 40px;
+}
+
+.title{
+	vertical-align: top;
+	font-size: 2.5em;
+	display: inline;
+}
+
+.userInfoBar{
+	text-align: right;
+	margin: 0;
+}
+
+.statusUpdateBar{
+	text-align: center;
+	width: 75%;
+	margin: 5px auto;
+	padding: 2px 0;
+	display: none;
+}
+
+.ajaxStatus{
+	position: absolute;
+	right: 10px;
+	top: 18px;
+	padding: 0 10px;
+}
+/* @end */
+
+/* @group SettingsBox */
+
+.settingsBox fieldset{
+	border: 1px solid;
+	position: absolute;
+	top: 0px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+	margin-bottom: 0;
+	padding: 0 10px;
+}
+
+.settingsBox fieldset > legend{
+	font-size: 30px;
+	
+}
+
+.stepsTable{
+	height: 225px;
+	margin: 0 -10px 0;
+	width: 678px;
+	table-layout: fixed;
+
+}
+
+.stepsTable2{
+	width: 378px !important;
+}
+
+.stepsTable th:nth-child(-n+2),
+.stepsTable td:nth-child(-n+2){
+	border-right: 1px solid;
+}
+
+.stepsTable2 th,
+.stepsTable2 td{
+	border-right: 0 !important;
+}
+
+.stepsTable th{
+	height: 30px;
+	font-size: 24px;
+	padding-left: 20px;
+}
+
+.stepsTable td{
+	font-size: 20px;
+	padding-left:20px;
+	vertical-align: top;
+}
+
+.stepsTableButton{
+	margin: 80px 0 0;
+	text-align: right;
+}
+
+.stepsTableButton button{
+	font-size: 24px;
+}
+
+.modalFormTable td {
+	vertical-align: bottom;
+}
+
+.modalFormTable td input{
+	margin: 0;
+}
+
+
+.addGroupMembersFormTable td:nth-last-child(-n+3){
+	width: 35%;
+}
+
+.AddMembersExtraInfoFormTable td:first-child{
+	width: 15%;
+}
+
+.AddMembersExtraInfoFormTable td:last-child{
+	width: 75%;
+	font-size: .85em;
+}
+.AddMembersExtraInfoFormTable input{
+	width: 465px;
+}
+
+.renameSiteForm h3{
+	margin: 5px 0 10px;
+}
+
+.renameSiteForm h4{
+	margin: 25px 0 0;
+}
+
+.renameSiteFormTable{
+	width: 100%;
+}
+
+.renameSiteFormTable th{
+	width: 20%;
+}
+
+.renameSiteFormTable th,
+.renameSiteFormTable td{
+	padding: 0 0 20px;
+	vertical-align: bottom;
+}
+
+.renameSiteFormTable td input{
+	width: 40%;
+}
+
+.potentialSiteName{
+
+}
+
+.renameSiteFormHelpText{
+	font-size: .85em;
+}
+
+.quickTour h3{
+	margin-top: 15px;
+}
+
+.quickTour img{
+	border-style: solid;
+	border-width: 2px;
+}
+
+.quickTour div{
+	width: 500px;
+}
+/* @end */
+
+/* @group Sub Header */
+
+.quickAddText{
+	display: inline;
+	font-size: 20px;
+	line-height: 1em;
+}
+
+input[type="text"].quickAddInput{
+	width: 300px;
+	font-size: 18px;
+	margin: 5px 0 0;
+}
+
+.quickAddSubmit{
+	margin: 5px 0 0;
+	vertical-align: top;
+	width: 57px;
+	padding: 0;
+	text-align: center;
+	padding: 3px 5px 3px;
+	white-space: nowrap;
+}
+
+.quickAddSubmit > span.ui-icon{
+	float: right;
+	margin: 0 0 0 5px;
+	position: relative;
+	top: -2px;
+}
+
+div.quickAddExamples{
+	/*background: gray;*/
+	margin: 0 0 5px 30px;
+	padding: 0;
+	line-height: 1.5em;
+}
+
+/* @end */
+
+/* @group ToDo */
+.todoListTut{
+	position: absolute;
+	top: 120px;
+	left: 20px;
+	bottom: 20px;
+	width: 292px;
+	color: #336699;
+	font-size: 24px;
+	font-weight: bold;
+	border: 5px solid #336699;
+}
+
+.todoListTut div{
+	position: absolute;
+	height: 6em;
+	margin-top: -3em;
+	top: 50%;
+	text-align: center;
+	width: 292px;
+}
+
+.todo {
+	margin: 0;
+	padding: 2px 0;
+	background-color: #C2D8ED; /*84B1FA 5FA7DE 668DCC*/
+	border-bottom: 1px solid #999;
+	height: 37px;
+	position: relative;
+	cursor: move;
+	left: 0px;
+	width: 100%;
+}
+
+.todoTitle{
+	width: 250px;
+	line-height: 22px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	font-size: 14px;
+	color: #444;
+	text-decoration: underline;
+}
+
+.todoTitle > span{
+	cursor: pointer;
+}
+
+
+.todoComplete{
+	/*opacity:0.7;
+	filter:alpha(opacity=50);*/
+}
+
+.todoComplete .todoTitle{
+	text-decoration: line-through;
+}
+
+.todoCheckBox{
+	float: left;
+	margin: 4px;
+	cursor: pointer;
+}
+
+.todoCheckBox > span{
+	width: 20px;
+	height: 30px;
+	background-repeat: no-repeat;
+	display: block;
+	overflow: hidden;
+	background-position: center center;
+}
+
+.todoCheckOff{
+	background-image: url(http://static.yakgroups.com/images/checkOff2b.png);
+}
+
+.todoCheckOn{
+	background-image: url(http://static.yakgroups.com/images/checkOn3b.png);
+}
+
+.todoCheckHover{
+	background-image: url(http://static.yakgroups.com/images/checkOn4b.png);
+}
+
+
+.todoExpand{
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	cursor: pointer;
+}
+
+.todoBottom{
+	font-size: 10px;
+	font-style: italic;
+	position: relative;
+	margin-left: 30px;
+}
+
+.todoAssignedMembers{
+	float: left;
+	width: 225px;
+	height: 12px;
+	overflow: hidden;
+}
+
+.todoDueDate{
+	position: absolute;
+	right: 2px;
+}
+
+.todoDraggable{
+	position: absolute;
+	width: 100px;
+	text-overflow: ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	font-size: 10px;
+	/*background-color: #336699;
+	color: #ffffff;*/
+}
+
+.todoDetails{
+	position: absolute;
+	top: 110px;
+	bottom: 10px;
+	left: 341px;
+	right: 10px;
+	overflow: hidden;
+}
+
+.todoDetails .ui-dialog-titlebar{
+	padding: 2px 3px 3px 6px;
+	position:relative;
+	margin: 2px 2px 0;
+	font-size: 16px;
+	line-height: 24px
+}
+
+.todoDetails .ui-dialog-title {
+	float:left;
+}
+
+.todoDetails .ui-dialog-titlebar-close {
+	height:18px;
+	margin:-10px 0 0;
+	padding:1px;
+	position:absolute;
+	right:5px;
+	top:50%;
+	width:19px;
+}
+
+.todoDetails .ui-dialog-titlebar-close span {
+	display:block;
+	margin:1px;
+}
+
+.todoDetails .ui-dialog-buttonpane {
+	position: absolute;
+	bottom: 0;
+	left: 2px;
+	right: 2px;
+	border-top:1px solid;
+}
+
+.todoDetails .ui-dialog-buttonpane button {
+	float:right;
+	margin: 2px 2px;
+	overflow:visible;
+	padding:2px 6px;
+	width:auto;
+}
+
+.todoDetailsTable,
+.todoDetailsForm{
+	overflow: auto;
+	padding: 2px 8px;
+	position: absolute;
+	top: 35px;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+}
+
+.viewTodoDetailsTable td{
+	padding: 12px 0;
+	font-style: normal;
+	font-size: 14px;
+}
+
+/* @end */
+
+/* @group Calendar */
+
+#tabs div.calendar{
+	border: 0;
+	overflow: hidden;
+}
+
+.calHeader{
+	height: 27px;
+	text-align: center;
+	line-height: 2.3em;
+	border-right: 1px solid #777777;
+	border-left: 1px solid #777777;
+	
+}
+
+.calPrevMonth, .calNextMonth{
+	position: absolute;
+	top: 5px;
+	width: 16px;
+	height: 16px;
+	padding: 1px 1px;
+}
+
+.calPrevMonth{
+	left: 3px;
+}
+
+.calNextMonth{
+	right: 3px;
+}
+
+.calDayTitles{
+	position: absolute;
+	top: 27px;
+	left: 0;
+	right: 0;
+	border-left: 1px solid #777777;
+	background-color: #eee;
+	color: #444;
+}
+
+.calContent{
+	position: absolute;
+	top: 57px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.calTable{
+	border-top: 1px solid #777777;
+	height: 100%;
+	table-layout: fixed;
+	border-left: 1px solid #777777;
+}
+
+.calTable td, .calDayTitles th{
+	border-right: 1px solid #777777;
+	text-align: center;
+	width: 14.29%;
+	vertical-align: top;
+	padding: 0;
+}
+
+.calDayTitles th{
+	border-top: 1px solid #777777;
+	padding: 5px 0;
+	height: 1em;
+}
+
+.calTable td{
+	border-bottom: 1px solid #777777;
+	overflow: hidden;
+}
+
+.calCellDiffMonth{
+	background-color: #eeeeee;
+}
+
+.calCellActive{
+	background-color: #DDDDDD;
+}
+
+.calDate{
+	text-align: right;
+	padding: 0 2px;
+	height: 14px;
+}
+
+.calEvent{
+	/*line-height: 22px;*/
+	width: 85%;
+	margin: 2px auto;
+	padding: 0px 2px;
+	text-align: left;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 10px;
+	text-decoration: underline;
+	cursor: move;
+}
+
+.calEvent span{
+	cursor: pointer;
+}
+
+/* @end */
+
+/* @group Discuss */
+.newDiscussionTable td{
+	font-size: 100%;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.allDiscussionsTable td,
+.allDiscussionsTable th{
+	padding: 4px;
+}
+
+.allDiscussionsTable tr > td:first-child {
+	width: 95%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.allDiscussionsTable tr > td:last-child,
+.allDiscussionsTable tr > th:last-child {
+	padding-left: 15px;
+	white-space: nowrap;
+}
+
+.currentDiscussionsTable tr > th:first-child{
+	vertical-align: top;
+	width: 100px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.currentDiscussionsTableFooter{
+	margin: 10px 0 0;
+	border-top: 1px solid #DDD;
+}
+
+.currentDiscussionsTableFooter textarea{
+	font-size: 14px;
+	width: 99.3%;
+	display:block;
+	height: 50px;
+	margin: 0;
+	padding: 0 0 0 2px;
+}
+
+/* @end */
+
+/* @group Files */
+
+.allFilesTable td{
+	text-align: center;
+}
+
+.allFilesTable td:first-child{
+	text-align: left;
+}
+
+.allFilesTable th:nth-child(2),
+.allFilesTable th:nth-child(3){
+	width: 120px;
+	text-align: center;
+}
+
+.uploadifyQueueItem {
+	font: 11px Verdana, Geneva, sans-serif;
+	border: 2px solid #E5E5E5;
+	background-color: #F5F5F5;
+	margin-top: 5px;
+	padding: 10px;
+	width: 90%;
+}
+
+.uploadifyError {
+	border: 2px solid #FBCBBC !important;
+	background-color: #FDE5DD !important;
+}
+
+.uploadifyQueueItem .cancel {
+	float: right;
+}
+
+.uploadifyProgress {
+	background-color: #FFFFFF;
+	border-top: 1px solid #808080;
+	border-left: 1px solid #808080;
+	border-right: 1px solid #C5C5C5;
+	border-bottom: 1px solid #C5C5C5;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.uploadifyProgressBar {
+	background-color: #0099FF;
+	width: 1px;
+	height: 3px;
+}
+
+.filesTut{
+	float: left;
+	margin: 5px 0 0 5px;
+	color: #336699;
+}
+
+.filesTut ul{
+	padding: 0 0 0 15px;
+	margin: 0;
+}
+
+.uploadifyQueue {
+	float: left;
+	width: 70%;
+	height: 135px;
+	overflow: auto;
+}
+
+#uploadifyUploader{
+	float: right;
+	margin-top: 5px;
+}
+
+/* @end */
+
+
+

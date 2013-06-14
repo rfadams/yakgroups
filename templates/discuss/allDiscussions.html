@@ -1,0 +1,19 @@
+{% spaceless %}
+<table id="allDiscussionsTable" class="allDiscussionsTable">
+	<tr>
+		<th><h3>Group Discussions</h3></th>
+		<th>Last Update</th>
+	</tr>
+	{% for topic in topics %}
+	<tr id="topic_{{ topic.id }}" class="pointer {% cycle 'tableAltRow' '' %}">
+		<td{% if not topic.read %} style="font-weight: bold"{% endif %}><a href="#/Discuss/topic_{{ topic.id }}">{{ topic.title|escape }}</a></td>
+		<td>{{ topic.updated|date:"g:iA"|lower }} {{ topic.updated|date:"M j" }}</td>
+	</tr>
+	{% empty %}
+	<tr class="tableAltRow">
+		<td>No Discussions</td>
+		<td>&nbsp;</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endspaceless %}

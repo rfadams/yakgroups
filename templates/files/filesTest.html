@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ site.name|capfirst }} | YakGroups Site
+{% endblock title %}
+
+{% block headCSS %}
+{{ CSSa|safe }}
+<style type="text/css">
+	.uploadifyQueueItem {
+	font: 11px Verdana, Geneva, sans-serif;
+	border: 2px solid #E5E5E5;
+	background-color: #F5F5F5;
+	margin-top: 5px;
+	padding: 10px;
+	width: 350px;
+}
+.uploadifyError {
+	border: 2px solid #FBCBBC !important;
+	background-color: #FDE5DD !important;
+}
+.uploadifyQueueItem .cancel {
+	float: right;
+}
+.uploadifyProgress {
+	background-color: #FFFFFF;
+	border-top: 1px solid #808080;
+	border-left: 1px solid #808080;
+	border-right: 1px solid #C5C5C5;
+	border-bottom: 1px solid #C5C5C5;
+	margin-top: 10px;
+	width: 100%;
+}
+.uploadifyProgressBar {
+	background-color: #0099FF;
+	width: 1px;
+	height: 3px;
+}
+#fileQueue {
+	width: 400px;
+	height: 300px;
+	overflow: auto;
+	border: 1px solid #E5E5E5;
+	margin-bottom: 10px;
+}
+</style>
+{% endblock headCSS %}
+
+{% block headJS %}
+<script type="text/javascript" src="{{ JQUERYUI_URL }}"></script>
+{{ JAVASCRIPT|safe }}
+<script type="text/javascript">
+$("#uploadify").uploadify({
+		'uploader': '/static/js/uploadify.swf',
+		'script': '/dz65pt/files/fileUploads/',
+		'cancelImg': 'http://static.yakgroups.com/images/cancel.png',
+		'folder': '/static/storage',
+		'queueID': 'uploadifyQueue',
+		'auto': true,
+		'multi': true,
+		'scriptAccess': 'always',
+		'buttonText': 'Upload File(s)'
+		//'onInit': function(){$('#uploadifyUploader').attr('title', 'Select multiple files at once to upload');},
+	
+	});
+</script>
+{% endblock headJS %}
+
+{% block body %}
+<div id="fileQueue"></div>
+<input type="file" name="uploadify" id="uploadify" />
+{% endblock body %}

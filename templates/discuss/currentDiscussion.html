@@ -1,0 +1,31 @@
+{% spaceless %}
+<h3>
+	<a id="" class="" href="" onclick="discuss.showAllDiscussions(); return false;">&laquo;</a> Discuss: {{ topic.title }}</h3>
+<table id="currentDiscussionsTable" class="currentDiscussionsTable">
+<tr>
+	<th>Author</th>
+	<th>Post</th>
+</tr>
+{% endspaceless %}
+{% for post in posts %}{% spaceless %}
+<tr class="{% cycle 'tableAltRow' '' %}">
+	<th>{% if post.creator %}{{ post.creator.first_name }}{% else %}Anon{% endif %}<br />{{ post.updated|date:"g:iA"|lower }} {{ post.updated|date:"M j" }}</th>
+	<td>{% endspaceless %}{{ post.body|urlize|linebreaksbr }}{% spaceless %}</td>
+</tr>
+{% endspaceless %}{% endfor %}{% spaceless %}
+</table>
+<table id="currentDiscussionsTableFooter" class="currentDiscussionsTable currentDiscussionsTableFooter">
+<tr>
+	<th>Related<br />ToDo's</th>
+	<td id="relatedTodosCurrent" class="relatedItemsCell">
+	{% include "discuss/relatedTodosTable.html" %}
+	</td>
+</tr>
+<tr>
+	<th>Related<br />Files</th>
+	<td id="relatedFilesCurrent" class="relatedItemsCell">
+	{% include "discuss/relatedFilesTable.html" %}
+	</td>
+</tr>
+</table>
+{% endspaceless %}

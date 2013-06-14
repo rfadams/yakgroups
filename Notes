@@ -1,0 +1,54 @@
+9/12/2009
+Wrote script to auto-generate random 6 character lowercase-digit string
+GenerateDefaultName functionality is currently in sites.model, should be moved
+Wrote view to display sites/default.html 
+
+9/13/2009
+Modified urls.py to catch site addresses, should be moved sites/urls.py
+Set urls.py & Site.name to make url work without a trailing slash
+
+Todo:
+Move urls.py functionality
+Move GenerateDefaultSiteName functionality
+Figure out how to properly handle trailing slashes
+
+9/17/2009
+Moved urls.py functionality to localized urls.py in sites app
+Tested url patterns .com/group1, .com/group1/, and .com/group1/add
+
+9/18/2009
+Wrote view function to randomly create group_site name
+Setup html form to submit to proper url
+View creates group_site and redirects user to the new site
+Disabled random group_site-name-creation in the model
+
+9/19/2009
+Added sites.RenameSiteForm so user can rename group
+Setup RenameSiteForm so it would redirect to renamed site on successful submit
+
+9/20/2009
+Added additional validation to sites.RenameSiteForm
+Added random_name field to sites.GroupSite model to store original name
+Added validation to ensure GroupSite.name never matches any of the GroupSite.random_name
+
+9/21/2009
+Started work on AddContactsForm
+Got basic form setup and working using modelform
+Found formsets to add/remove rows from the from
+Found how to inherit from django.contrib.auth to use built-in name, username, and email data
+
+9/22/2009
+Reorganized url structure to make it more clear and uniform
+Redid form format to follow standard format of form->successPage
+Redid AddContacts view to follow new format
+Started implementing formsets on AddContacts form to allow addition and subtraction of rows
+
+9/23-9/26/2009
+Completed add/remove row on AddContactsForm
+Redoing AddContactsForm to allow integration with the native django.contrib.auth authentication
+
+10/3/2009
+Fixed (mostly) errors in AddContactsForm validation. Hoping rest will be negated when Ajax is added
+Finished AddContactsForm integration with django.contrib.auth authentication
+
+10/4/2009

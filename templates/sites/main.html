@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ site.name|capfirst }} | YakGroups Site
+{% endblock title %}
+
+{% block headCSS %}
+{{ CSSa|safe }}
+{% endblock headCSS %}
+
+{% block headJS %}
+<script type="text/javascript" src="{{ JQUERYUI_URL }}"></script>
+{{ JAVASCRIPT|safe }}
+<script type="text/javascript">
+	
+	$(function(){
+		$('.ui-state-default').live("mouseover", function(){$(this).addClass('ui-state-hover');})
+		$('.ui-state-default').live("mouseout", function(){$(this).removeClass('ui-state-hover');})
+		
+	});
+</script>
+{% endblock headJS %}
+
+{% block body %}
+<span class="todoCheckOn todoCheckOff todoCheckHover"></span>
+<div id="todoListTut" class="todoListTut hidden">
+	<div>
+		This is the ToDo List<br />
+		Use the "Quick Add"<br />
+		(above)<br />
+		to add ToDo's
+	</div>
+</div>
+
+<div id="stepsModal" class="stepsModal">
+	<div id="stepsModalContent" class="stepsModalContent"></div>
+</div>
+
+<div id="todoDetails" class="todoDetails hidden ui-widget ui-widget-content">
+	<div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">
+		<span id="todoDetailsHeader" class="todoDetailsHeader ui-dialog-title" unselectable="on" style="-moz-user-select: none;">ToDo Title</span>
+		<a id="todoDetailsClose" class="todoDetailsClose ui-dialog-titlebar-close" href="" role="button" unselectable="on" style="-moz-user-select: none;">
+			<span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span>
+		</a>
+	</div>
+	<div id="todoDetailsTable" class="todoDetailsTable"></div>
+	<div id="todoDetailsForm" class="todoDetailsForm">
+		<form id="modifyToDoDetailsForm" name="modifyToDoDetailsForm" method="post" action="">
+			<input type="hidden" name="id" id="id_id" value="0" />
+			<div class="hidden"><input type="submit" /></div>
+			<div id="modifyToDoDetailsFormContent"></div>
+		</form>
+	</div>
+	<div class="ui-dialog-buttonpane">
+		<button id="todoDetailsCancelButton" class="ui-state-default" type="button">Close</button>
+		<button id="todoDetailsActionButton" class="ui-state-default" type="button">Edit</button>
+	</div>
+</div>
+
+<div id="todoItemTemplate" class="todo hidden">
+	<a class="todoCheckBox" title="Mark ToDo Complete"><span class="todoCheckOff"></span></a>
+	<div class="todoTitle"></div>
+	<a class="todoExpand ui-state-default"><span title="View ToDo Details" class="ui-icon ui-icon-zoomin"></span></a>
+	<div class="todoBottom">
+		<span class="todoAssignedMembers">&nbsp;</span>
+		<span class="todoDueDate"></span>
+	</div>
+</div>
+
+<div id="groupTitleBar" class="groupTitleBar{% if site.title %}">{{ site.title }}{% else %} hidden">{% endif %}</div>
+
+<div id="ajaxStatus" class="ajaxStatus hidden"></div>
+
+<div id="header" class="header">
+	<div class="head1">
+		<img class="mascotImage" alt="YG Mascot" src="{{ MEDIA_URL }}/images/yak.gif" />
+		<div class="title title1">Yak</div><div class="title title2">Groups</div><div class="title title4">beta</div>
+	</div>
+	<div class="head2">
+		<div class="userInfoBar small">
+			<a href="http://forums.yakgroups.com/" title="Go to YakGroups Forums to leave Feedback">Feedback</a> |&nbsp;
+			{% if user_email %}<a href="/{{ site.name }}/members/userProfile/">{{ user_email }}</a> |&nbsp;{% endif %}
+			<a id="settingsLink" href="">Settings-Help</a> |&nbsp;
+			{% if user_email %}<a href="{{ site.name }}/site/logout/">Logout</a>{% else %}<a href="{{ site.name }}/site/login/">Login</a>{% endif %}</div>
+		<div id="statusUpdateBar" class="statusUpdateBar ui-state-highlight ui-state-error">Status Update</div>
+	</div>
+</div>
+
+<div id="settingsBox" class="settingsBox">
+	<fieldset>
+		<legend>Getting Started</legend>
+		<table id="stepsTable" class="stepsTable">
+			<tr>
+				<th>Step 1:</th>
+				<th>Step 2:</th>
+				<th>Step 3:</th>
+			</tr>
+			<tr>
+				<td><a id="addGroupMembersLink" href="">Add Group Members</a></td>
+				<td><a id="nameSiteLink" href="">Name your YakGroups Site</a></td>
+				<td>
+					<a id="quickTourLink" href="">Quick 1-minute Tour of YakGroups</a>
+					<div class="stepsTableButton">
+						<button id="stepsTableButton" type="button" class="ui-state-default">
+						Done
+						</button>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+</div>
+
+<form id="addTodoForm" method="post" action="" onsubmit="return false;">
+	<div id="subHeader" class="subHeader">
+		<div class="quickAddText">Quick Add&nbsp;</div>
+		<input id="quickAddInput" name="quickAddInput" class="quickAddInput" type="text" value="" />&nbsp;
+		<button type="submit" class="quickAddSubmit ui-state-default">
+			<span class="ui-icon ui-icon-plusthick"></span>Add
+		</button>
+		<div class="quickAddExamples small">Examples: "Report by John and Beth due tomorrow" or "Group Meeting at 7pm 10/9"</div>
+	</div>
+</form>
+<div id="todoListHeader" class="todoListHeader">todoListHeader</div>
+<div id="todoList" class="todoList">
+</div>
+<div id="vDivider" class="vDivider"></div>
+<div id="tabs" class="tabs">
+	<ul>
+		<li><a href="#calendar">Calendar</a></li>
+		<li><a href="#discuss">Discuss</a></li>
+		<li><a href="#files">Files</a></li>
+		<!--<li><a href="#members">Members</a></li>-->
+	</ul>
+	<div id="calendar" class="tabContent calendar">
+		<div id="calHeader" class="calHeader">
+			<a id="calPrevMonthButton" class="calPrevMonth ui-state-default"><span title="Go to Previous Calendar" class="ui-icon ui-icon-circle-triangle-w"></span></a>
+			<div id="calMonth" class="calMonth">October 2009</div>
+			<a id="calNextMonthButton" class="calNextMonth ui-state-default"><span title="Go to Next Month" class="ui-icon ui-icon-circle-triangle-e"></span></a>
+		</div>
+
+		<table class="calDayTitles">
+			<tr>
+				<th>Mon</th>
+				<th>Tues</th>
+				<th>Wed</th>
+				<th>Thur</th>
+				<th>Fri</th>
+				<th>Sat</th>
+				<th>Sun</th>
+			</tr>
+		</table>
+		<div id="calContent" class="calContent">
+			<table id="calTable" class="calTable">
+				<tr><td>Howdy</td></tr>
+			</table>
+		</div>
+	</div>
+	<div id="discuss" class="tabContent discussions">
+		<div id="allDicussions" class="allDicussions content"></div>
+		<div id="currentDiscussion" class="currentDiscussion content hidden"></div>
+		<div id="newDiscussion" class="newDiscussion content hidden"></div>
+		<div class="ui-dialog-buttonpane">
+			<button id="discussCancelButton" class="ui-state-default" type="button">Cancel</button>
+			<button id="discussActionButton" class="ui-state-default" type="button">Save</button>
+		</div>
+	</div>
+	<div id="files" class="tabContent files">
+		<div id="allFiles" class="allFiles content">
+			<div id="filesHeader" class="filesHeader">
+				<div id="uploadifyQueue" class="uploadifyQueue hidden"></div>
+				<div id="filesTut" class="filesTut">
+					<ul>
+						<li>Drag ToDo's onto files to link them together</li>
+						<li>You can upload multiple files at once</li>
+					</ul>
+				</div>
+				<input type="file" name="uploadify" id="uploadify" />
+				<div style="clear: both;"></div>
+			</div>
+			<table id="allFilesTable" class="allFilesTable">
+				<tr><th></th></tr>
+			</table>
+		</div>
+		<div class="ui-dialog-buttonpane">
+			<button id="filesCancelButton" class="ui-state-default hidden" type="button">Cancel</button>
+			<button id="filesActionButton" class="ui-state-default" type="button">Refresh</button>
+		</div>
+	</div>
+	<!--<div id="members" class="tabContent members">
+		{% for member in site.memberinfo_set.all|dictsort:"first_name" %}
+			{{ member.first_name }} {{ member.email }} {{ member.phone}} <br />
+		{% empty %}
+			Empty...lame
+		{% endfor %}
+		
+	</div>-->
+</div>
+
+{% endblock body %}

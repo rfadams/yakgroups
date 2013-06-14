@@ -1,0 +1,14 @@
+{% spaceless %}
+<table id="relatedFilesTable" class="relatedItemsTable">
+{% for file in files %}
+<tr class="{% cycle 'tableAltRow' '' %}">
+	<td>
+		<a id="relatedFile_{{ file.id }}"  class="relatedFileLink" href="{{ file.name|urlencode }}" target="_blank">{{ file.name }} by {% if file.creator %}{{ file.creator.first_name }}{% else %}Anon{% endif %}</a>
+	</td>
+</tr>
+{% empty %}
+<tr class="tableAltRow"><td>No related files</td><td>&nbsp;</td></tr>
+{% endfor %}
+</table>
+<div class="alt">*Link ToDo's to Files to make them show up in this list</div>
+{% endspaceless %}

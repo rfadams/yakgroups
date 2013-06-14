@@ -1,0 +1,16 @@
+{% spaceless %}
+<table id="relatedToDosTable" class="relatedItemsTable">
+{% for todo in todos %}
+<tr class="{% cycle 'tableAltRow' '' %}">
+	<td>
+		<a id="relatedToDo_{{ todo.id }}"  class="relatedToDoDetailsLink" href="">{{ todo.title }}</a>
+	</td>
+	<td>
+		<a id="relatedToDoRemove_{{ todo.id }}" class="relatedToDoRemoveLink" href="">Remove</a>
+	</td>
+</tr>
+{% empty %}
+<tr class="tableAltRow"><td>Drag ToDo Items here to link them with this discussion</td><td>&nbsp;</td></tr>
+{% endfor %}
+</table>
+{% endspaceless %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+YakGroups Directory
+{% endblock title %}
+
+{% block headCSS %}
+{{ CSSa|safe }}
+{% endblock headCSS %}
+
+{% block headJS %}
+<script type="text/javascript" src="{{ JQUERYUI_URL }}"></script>
+<script type="text/javascript">
+</script>
+{% endblock headJS %}
+
+{% block body %}
+<div style="padding: 15px;">
+<h1>YakGroups Terms of Service and Privacy Policy</h1>
+<h2>Terms of Service</h2>
+<ol>
+	<li>I will make all effort to maintain the website online until the end of each semester in which it was available.</li>
+	<li>I will try to store and protect your data as best I can.</li>
+	<li>This is a Beta product, please cut me some slack. I am a college student with no funds for lawyers.</li>
+</ol>
+
+<h2>Privacy Policy</h2>
+<ol>
+	<li>Your passwords are stored in a 1-way encrypted format. I cannot read or recover your passwords.</li>
+	<li>I will never sell or misuse any information you provide.</li>
+</ol>
+
+
+
+</div>
+{% endblock body %}

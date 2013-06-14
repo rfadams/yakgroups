@@ -1,0 +1,42 @@
+{% spaceless %}
+<form id="addGroupMembersForm" action="" method="post">
+	<table id="AddMembersExtraInfoFormTable" class="modalFormTable AddMembersExtraInfoFormTable">
+		<tr>
+			<td>{{ info_form.description.label_tag }}</td>
+			<td{% if info_form.description.errors %} class="errorCell"{% endif %}>{{ info_form.description.errors }}{{ info_form.description }}<br />{{ info_form.description.help_text }}</td>
+		</tr>
+	</table>
+
+	<br />
+
+	{{ form.management_form }}
+	<table id="addGroupMembersFormTable" class="modalFormTable addGroupMembersFormTable">
+		<tr><th>&nbsp;</th><th>First Name Only</th><th>Email</th><th>Phone (Optional)</th></tr>
+		{% for f in form.forms %}
+		<tr valign="bottom">
+			<td>
+					{% if forloop.first %}
+						Me.
+					{% else %}
+						{{ forloop.counter }}.
+					{% endif %}
+			</td>
+			<td{% if f.first_name.errors %} class="errorCell"{% endif %}>
+				{{ f.first_name.errors }}{{ f.first_name }}
+			</td>
+			<td{% if f.email.errors %} class="errorCell"{% endif %}>
+					{{ f.email.errors }}{{ f.email }}
+			</td>
+			<td{% if f.phone.errors %} class="errorCell"{% endif %}>
+						{{ f.phone.errors }}{{ f.phone }}
+			</td>
+		</tr>
+		{% endfor %}
+</table>
+
+	
+<input type="hidden" id="submitType" name="submitType" value="">
+<input class="ui-state-default" type="button" value="Add a Row" id="addRowSubmit" name="addRowSubmit" />&nbsp;
+<input class="ui-state-default" type="button" value="Remove Last Empty Row" id="removeRowSubmit" name="removeRowSubmit" />
+</form>
+{% endspaceless %}

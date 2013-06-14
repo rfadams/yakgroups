@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+User Profile
+{% endblock title %}
+
+{% block headCSS %}
+{{ CSSa|safe }}
+{% endblock headCSS %}
+
+{% block headJS %}
+<script type="text/javascript" src="{{ JQUERYUI_URL }}"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$('.ui-state-default').live("mouseover", function(){$(this).addClass('ui-state-hover');})
+		$('.ui-state-default').live("mouseout", function(){$(this).removeClass('ui-state-hover');})
+
+	});
+</script>
+{% endblock headJS %}
+
+{% block body %}
+<div style="padding: 15px;">
+<h1>Welcome{% if name %} Back {{ name|capfirst }}{% endif %}!</h1>
+<h4>Take a moment to setup your account</h4>
+
+<form action="" method="post">
+<table style="width: 300px;">
+	{{ form }}
+</table>
+<input type="submit" class="ui-state-default" name="Save" value="Save" />
+</form>
+<br>
+{% if not unique_url %}
+<h3>YakGroups</h3>
+{% for site in user.sites.all|dictsortreversed:"name_changed" %}
+<h4>{{ forloop.counter }}. <a href="/{{ site.get_site_name }}">{% if not site.name_changed %}Unnamed Group: {{ site.get_site_name }}{% else %}{{ site.title }}{% endif %} - http://yakgroups.com/{{ site.get_site_name }}</a></h4>
+{% endfor %}
+{% endif %}
+</div>
+{% endblock body %}

@@ -1,0 +1,26 @@
+
+<form id="renameSiteForm" class="renameSiteForm" action="" method="post" onsubmit="return false;">
+	<!--<h3>New Site Address: http://yakgroups.com/<span id="potentialSiteName" class="potentialSiteName">&nbsp;</span></h3>-->
+	<table id="renameSiteFormTable" class="modalFormTable renameSiteFormTable">
+		<tr>
+			<th>Group Site Address</th>
+			<td id="potentialSiteName"{% if f.name.errors %} class="errorCell"{% endif %}>
+					{{ form.name.errors }}
+					http://yakgroups.com/{{ form.name }}
+				<div class="renameSiteFormHelpText">You can only name a site once! You don't have to name it now.</div>
+			</td>
+		</tr>
+		<tr>
+			<th>Group<br />Title</th>
+			<td{% if f.title.errors %} class="errorCell"{% endif %}>
+				{{ form.title.errors }}{{ form.title }}
+				<div class="renameSiteFormHelpText">25 characters max.</div>
+			</td>
+		</tr>
+	</table>
+	<!--<h4>Attention</h4>
+	<ul>
+		<li>You can only name a site once! You don't have to name it now - you can do this later.</li>
+		<li>All group members will be emailed notifying them of the update</li>
+	</ul>-->
+</form>

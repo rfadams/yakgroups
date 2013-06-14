@@ -1,0 +1,17 @@
+{% spaceless %}
+<table class="formTable">
+	{{ form.as_table }}
+	<tr>
+		<th>Related<br />Discussions</th>
+		<td id="relatedTopicsModify" class="relatedItemsCell">
+		{% include "todos/relatedDiscussionsTable.html" %}
+		</td>
+	</tr>
+	<tr>
+		<th>Related<br />Files</th>
+		<td id="relatedFilesModify" class="relatedItemsCell">
+		{% include "todos/relatedFilesTable.html" %}
+		</td>
+	</tr>
+</table>
+{% endspaceless %}

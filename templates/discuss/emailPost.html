@@ -1,0 +1,10 @@
+{% spaceless %}Author: {% if post.creator %}{{ post.creator.first_name }}{% else %}Anonymous{% endif %}
+Subject: {{ topic.title }}
+
+{% if topic.site.title %}YakGroups Site: {{ topic.site.title }}{% endif %}
+Reply at: http://www.yakgroups.com/{{ topic.site.get_site_name }}#/Discuss/topic_{{ topic.id }}{% endspaceless %}
+
+{{ post.body }}
+
+---
+Start a new College Group Project for FREE on YakGroups - http://www.yakgroups.com

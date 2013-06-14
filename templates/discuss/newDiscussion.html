@@ -1,0 +1,11 @@
+{% spaceless %}
+<h3>Create New Discussion</h3>
+<form id="newDiscussionForm" name="newDiscussionForm" method="post" action="">
+<input type="hidden" name="site" value="{{ site }}" />
+<input type="hidden" id="new_discussion_id" name="new_discussion_id" value="" />
+<table id="newDiscussionTable" class="formTable newDiscussionTable">
+	{{ form.as_table }}
+	<tr><th>Related<br />ToDo's:</th><td id="relatedTodosNew" class="relatedItemsCell">Drag ToDo Items here to link them with this new discussion</td></tr>
+</table>
+</form>
+{% endspaceless %}

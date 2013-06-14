@@ -1,0 +1,22 @@
+{% spaceless %}
+<table id="allFilesTable" class="allFilesTable">
+	<tr>
+		<th><h3>Group Files</h3></th>
+		<th>Uploaded By</th>
+		<th>Upload Date</th>
+	</tr>
+	{% for file in files %}
+	<tr id="file_{{ file.id }}" class="pointer {% cycle 'tableAltRow' '' %}">
+		<td><a href="{{ media_url }}/storage/{{ site.random_name }}/{{ file.name|urlencode }}">{{ file.name|escape }}</a></td>
+		<td>{{ file.creator.first_name }}</td>
+		<td>{{ file.updated|date:"g:iA"|lower }} {{ file.updated|date:"M j" }}</td>
+	</tr>
+	{% empty %}
+	<tr class="tableAltRow">
+		<td>No Files</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endspaceless %}

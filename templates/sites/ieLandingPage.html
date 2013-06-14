@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if site.name %}{{ site.name|capfirst }} | {% endif %} For IE Users
+{% endblock title %}
+
+{% block headCSS %}
+{{ CSSa|safe }}
+<style type="text/css">
+	body{
+		width: 100%;
+	}
+	.ieLandContent{
+		width: 50%;
+		min-width: 550px;
+		margin: 30px auto;
+	}
+	button.rounded span {
+		background: transparent url({{ MEDIA_URL }}/images/btn_left.png) no-repeat scroll left top;
+	color: #FFFFFF;
+	}
+	button.rounded {
+		background: transparent url({{ MEDIA_URL }}/images/btn_right.png) no-repeat scroll right top;
+	clear: left;
+	font-size: 0.8em;
+	}
+	button {
+		border: 0 none;
+		cursor: pointer;
+		font-weight: bold;
+		padding: 0 15px 0 0;
+		text-align: center;
+		height: 30px;
+		line-height: 30px;
+		width: auto;
+	}
+
+	button span {
+		display: block;
+		padding: 0 0 0 15px;
+		position: relative;
+		white-space: nowrap;
+		height: 30px;
+		line-height: 30px;
+		font-size: 13px;
+	}
+
+	button.rounded:hover {
+		background-position: 100% -30px;
+	}
+
+	button.rounded:hover span {
+		background-position: 0% -30px;
+	}
+
+	button::-moz-focus-inner {
+		border: none;
+	}
+</style>
+{% endblock headCSS %}
+
+{% block headJS %}
+<script type="text/javascript" src="{{ JQUERYUI_URL }}"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$('.ui-state-default').live("mouseover", function(){$(this).addClass('ui-state-hover');})
+		$('.ui-state-default').live("mouseout", function(){$(this).removeClass('ui-state-hover');})
+
+	});
+</script>
+{% endblock headJS %}
+
+{% block body %}
+<div id="ieLandContent" class="ieLandContent">
+	<h1>Sorry Internet Explorer Users</h1>
+
+	{% if ieVersion %}
+	<h3>I see you are using IE 6 or 7. This is bad because:</h3>
+	<ol>
+		<li>IE 6 and 7 do not conform to web standards</li>
+		<li>It is difficult to develop web applications for IE 6 and 7 since they do not follow standards</li>
+		<li>As a 1-person company, I do not have the time/resources required to support IE 6 and 7</li>
+	</ol>
+	<div style="margin-left: 25px">In order to use YakGroups, please upgrade to a better web browser. It's free!</div>
+	{% else %}
+
+	<h3>I see you are using IE8. Things could be better:</h3>
+	<ol>
+		<li>YakGroups is fully functional, but the styling is just a little "off" in few places</li>
+		<li>IE8, unfortunately, is still a little buggy, particularly when it comes to styling</li>
+		<li>As a 1-person company, I have very limited time/resources. I will work to improve how YakGroups looks in IE8 when I can, but it is a lower priority than adding new features</li>
+	</ol>
+
+	<div style="margin-left: 15px">
+	I strongly encourage you to upgrade to Firefox. It's free! But if you insist...
+	</div>
+	<button type="submit" class="rounded" onClick="window.location.reload()">
+		<span>Proceed to YakGroups! (Even though it would look better in Firefox) </span>
+	</button>
+	
+	<br />
+	<br />
+	<br />
+	{% endif %}
+
+	<a href='http://www.mozilla.com/en-US/?from=sfx&amp;uid=302512&amp;t=449'><img src='http://sfx-images.mozilla.org/affiliates/Buttons/Firefox3.5/468x60.png' alt='Spread Firefox Affiliate Button' border='0' /></a>
+</div>
+
+{% endblock body %}

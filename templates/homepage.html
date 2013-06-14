@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}College Group Projects made better | YakGroups.com Homepage{% endblock title %}
+
+{% block headCSS %}
+{{ CSSb|safe }}
+<style>
+	button.rounded span {
+		background: transparent url({{ MEDIA_URL }}/images/btn_left.png) no-repeat scroll left top;
+	color: #FFFFFF;
+	}
+	button.rounded {
+		background: transparent url({{ MEDIA_URL }}/images/btn_right.png) no-repeat scroll right top;
+	clear: left;
+	font-size: 0.8em;
+	}
+</style>
+{% endblock headCSS %}
+
+{% block headJS %}
+<script type="text/javascript" src="{{ MEDIA_URL }}/js/YG-Homepage.js"></script>
+
+{% endblock headJS %}
+
+{% block body %}
+
+<div class="container">
+	<div class="push-2 pull-2 span-20 prepend-top">
+		<div class="span-16">
+			<div class="span-3"><h1 class="header"><img class="yakImg" alt="YG Mascot" src="{{ MEDIA_URL }}/images/yak-large.gif" /></h1></div>
+			<div class="span-13 last">
+				<h1 class="header">
+					<span class="head1">Yak</span>
+					<span class="head2">Groups</span>
+					<span class="head3">beta</span>
+				</h1>
+				<div class="span-13 last tagline"><h3 class="alt">College Group Projects made better...much better</h3> </div>
+			</div>
+		</div>
+		<div class="span-4 last">
+			<h3 class="linksBar">
+				<a href="http://forums.yakgroups.com">Feedback</a>&nbsp;
+				<a href="http://blog.yakgroups.com">Blog</a>&nbsp;
+				<a href="/login/">Login</a>
+			</h3>
+		</div>
+		<hr />
+		<h1 class="intro span-20 last">Easily plan, organize, & manage college group projects</h1>
+		<div class="span-20 last">
+			<div id="promo_1" class="promo span-6 large">Quickly Add ToDo Items</div>
+			<div id="promo_2" class="promo span-8 large">View Your Project Schedule at a Glance</div>
+			<div id="promo_3" class="promo span-6 large last">Easily Discuss and Plan</div>
+		</div>
+		<div class="body span-20 last">
+			<div id="bodyLeft_1" class="bodyLeft span-9 hide">
+				<img class="bodyImg" alt="Screenshot 1: Quick Add ToDo's" src="{{ MEDIA_URL }}/images/Slice-1.png" />
+				<div class="captionText large alt">Quick Add ToDo's, then drag to change their order</div>
+			</div>
+			<div id="bodyLeft_2" class="bodyLeft span-9 hide">
+				<img class="bodyImg" alt="Screenshot 2: Calendar" src="{{ MEDIA_URL }}/images/Slice-2.png" />
+				<div class="captionText large alt">Drag ToDo's onto and around on the calendar</div>
+			</div>
+			<div id="bodyLeft_3" class="bodyLeft span-9 hide">
+				<img class="bodyImg" alt="Screenshot 3: Discussions" src="{{ MEDIA_URL }}/images/Slice-3.png" />
+				<div class="captionText large alt">Participate in discussions with your group members</div>
+			</div>
+			<div id="bodyLeft_4" class="bodyLeft span-9">
+				<img class="bodyImg" alt="Screenshot 4: Add Group Members" src="{{ MEDIA_URL }}/images/Slice-4.png" />
+				<div class="captionText large alt">All Group Members added will be notified via email</div>
+			</div>
+			<div class="bodyRight span-11 last">
+				<div class="action">
+					<form action="/site/createSite/" method="POST">
+						<button type="submit" class="rounded">
+							<span>Click here! Create your FREE Group Project Website! </span>
+						</button>
+					</form>
+
+				</div>
+				<div id="description_1" class="description push-1 span-9 pull-1 last hide">
+					The "Quick Add" allows you to use natural language to quickly give ToDo's due dates and assign them to group members!
+				</div>
+				<div id="description_2" class="description push-1 span-9 pull-1 last hide">
+					View all ToDo's on the calendar to easily review your group's schedule! Also, drag ToDo's onto the calendar to assign or reschedule its due date.
+				</div>
+				<div id="description_3" class="description push-1 span-9 pull-1 last hide">
+					Easily create and reply to group discussions. Also, link ToDo's to  discussions for easy reference.
+				</div>
+				<div id="description_4" class="description push-1 span-9 pull-1 last">
+					For manageable group projects:<span class="steps"><br />Step 1: Click above<br />Step 2: Add group members<br /><em><strong>Step 3: Get started!</strong></em></span>
+				</div>
+			</div>
+		</div>
+		<div class="span-20 prepend-top last" style="text-align:center">
+			Contact Me: <a href="mailto:robert@yakgroups.com">Robert@yakgroups.com</a> |
+			<a href="/terms/">Terms of Service and Privacy Policy</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	try {
+		var pageTracker = _gat._getTracker("UA-11800307-1");
+		pageTracker._setDomainName(".yakgroups.com");
+		pageTracker._trackPageview();
+	} catch(err) {}</script>
+{% endblock body %}

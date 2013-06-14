@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+YakGroups Directory
+{% endblock title %}
+
+{% block headCSS %}
+{{ CSSa|safe }}
+{% endblock headCSS %}
+
+{% block headJS %}
+<script type="text/javascript" src="{{ JQUERYUI_URL }}"></script>
+<script type="text/javascript">
+</script>
+{% endblock headJS %}
+
+{% block body %}
+<div style="padding: 15px;">
+<h1>Welcome Back {{ user.first_name|capfirst }}!</h1>
+
+{% for site in user.sites.all|dictsortreversed:"name_changed" %}
+<h4>{{ forloop.counter }}. <a href="/{{ site.get_site_name }}">{% if not site.name_changed %}Unnamed Group: {{ site.get_site_name }}{% else %}{{ site.title }}{% endif %} - http://yakgroups.com/{{ site.get_site_name }}</a></h4>
+{% endfor %}
+
+
+</div>
+{% endblock body %}
